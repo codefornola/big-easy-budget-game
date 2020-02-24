@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'app'),
 
     /*
     |--------------------------------------------------------------------------
@@ -49,6 +49,7 @@ return [
         'app' => [
             'driver'   => 'mongodb',
             'host'     => explode(',', env('DB_MONGO_HOST', 'localhost')),
+            'port'     => env('DB_PORT', 27017),
             'database' => env('DB_MONGO_DATABASE'),
             'username' => env('DB_MONGO_USERNAME'),
             'password' => env('DB_MONGO_PASSWORD'),
