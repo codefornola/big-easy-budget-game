@@ -1,0 +1,12 @@
+.medium-editor-placeholder:after {
+	color: #CCC;
+	padding: 10px 16px;
+}
+.medium-editor-placeholder:after {
+	content: attr(data-placeholder) !important;
+	font-style: italic;
+	left: 0;
+	position: absolute;
+	top: 0;
+	white-space: pre;
+}

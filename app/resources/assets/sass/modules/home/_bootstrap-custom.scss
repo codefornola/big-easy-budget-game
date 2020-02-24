@@ -1,0 +1,36 @@
+// custom variables and override bootstrap variables
+
+// Colors
+$white: #fff;
+$black: #000;
+$green: #0b8e4e;
+$gray: #212d32;
+
+// Scaffolding
+$body-bg: $white;
+$text-color: $gray;
+$link-color: $green;
+
+//Typography
+$font-family-sans-serif: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$font-size-h2: 30px;
+$font-size-h3: 22px;
+
+// Button 
+$btn-default-color: $green;
+$btn-default-bg: $white;
+$btn-default-border: #eaeff3;
+$btn-primary-color: $white;
+$btn-primary-bg: $green;
+
+// Grid system
+$grid-float-breakpoint: 992px;
+$grid-gutter-width: 30px;
+
+// Container sizes
+$container-lg: 1200px;
+
+// Media queries breakpoints
+$screen-lg: 1230px;

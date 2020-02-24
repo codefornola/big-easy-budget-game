@@ -1,0 +1,9 @@
+/vendor
+/node_modules
+/public/assets/play
+Homestead.yaml
+.env
+/config/accounts.php
+.idea
+.htpasswd
+.DS_STORE

@@ -1,0 +1,295 @@
+body {
+	min-width: 320px;
+}
+
+#wrapper {
+	overflow: hidden;
+	position: relative;
+}
+
+.btn {
+	text-transform: uppercase;
+	white-space: normal;
+}
+
+img {
+	max-width: 100%;
+}
+
+.banner-block {
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	height: 680px;
+
+	@include media('<desktop') {
+		height: 480px;
+	}
+
+	@include media('<tablet') {
+		height: 300px;
+	}
+}
+
+.navbar-hold {
+	background: #eaeff3;
+
+	@include media('<tablet') {
+		position: relative;
+		padding-bottom: 15px;
+	}
+
+	.container {
+		position: relative;
+	}
+
+	.logo-hold {
+		background: $white;
+		text-align: center;
+		width: 300px;
+		float: left;
+		margin-top: -75px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height:141px;
+
+		@include media('<desktop') {
+			width: 190px;
+			position: absolute;
+			top: -160px;
+			left: 15px;
+			margin: 0;
+		}
+
+		@include media('<tablet') {
+			position: static;
+			margin: 0 auto 10px;
+			width: 150px;
+			float: none;
+		}
+
+		a {
+			display: block;
+			padding: 24px 15px;
+
+			@include media('<desktop') {
+				padding: 20px 15px;
+			}
+
+			@include media('<tablet') {
+				padding: 10px;
+			}
+			img{
+				max-height: 141px;
+			}
+		}
+	}
+
+	.wrap {
+		float: left;
+		width: 650px;
+		position: relative;
+		padding: 0 17px;
+
+		@include media('<widescreen') {
+			width: 450px;
+		}
+
+		@include media('<desktop') {
+			padding: 0 17px 0 0;
+		}
+
+		@include media('<tablet') {
+			float: none;
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	.bar-text {
+		position: absolute;
+		top: -47px;
+		left: 347px;
+		font-size: 20px;
+		line-height: 24px;
+		color: $white;
+
+		@include media('<desktop') {
+			top: -40px;
+			left: 230px
+		}
+
+		@include media('<tablet') {
+			font-size: 14px;
+			line-height: 18px;
+			padding: 0 15px;
+			text-align: center;
+			right: 0;
+			left: 0;
+		}
+	}
+
+	.dropdown{
+		float: right;
+		width: 170px;
+
+		@include media('<tablet') {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	.btn {
+		border: none;
+		border-radius: 0;
+		text-transform: uppercase;
+		padding: 21px 10px;
+		width: 100%;
+
+		@include media('<tablet') {
+			padding: 12px 10px;
+		}
+
+		.fa {
+			margin-left: 2px;
+		}
+	}
+}
+
+#nav {
+	@include media('<tablet') {
+		margin-bottom: 10px;
+	}
+
+	ul {
+		@extend %listreset;
+		font-size: 0;
+
+		@include media('<tablet') {
+			text-align: center;
+		}
+
+		li {
+			text-transform: uppercase;
+			display:inline-block;
+			vertical-align:top;
+			font-size: 16px;
+
+			@include media('<tablet') {
+				font-size: 14px;
+			}
+		}
+
+		a {
+			color: #575a5c;
+			padding: 21px 15px;
+			display: block;
+
+			@include media('<tablet') {
+				padding: 12px 10px;			}
+
+			&:hover {
+				color: $white;
+				background: $green;
+			}
+		}
+	}
+}
+
+.main-content {
+	.container {
+		padding-top: 52px;
+		padding-bottom: 42px;
+	}
+
+	h2 {
+		margin: 0 0 4px;
+	}
+
+	h3 {
+		color: $green;
+		margin: 0 0 29px;
+	}
+
+	p,
+	.text-hold {
+		margin-bottom: 31px;
+		padding-right: 52px;
+
+		@include media('<widescreen') {
+			padding-right: 0;
+		}
+
+		p {
+			margin-bottom: 24px;
+		}
+	}
+
+	.btn {
+		width: 166px;
+		padding: 20px 10px;
+		border-color: #eaeff3;
+
+		@include media('<tablet') {
+			display: block;
+			margin: 0 auto 30px;
+		}
+
+		&:hover {
+			background: #eaeff3;
+		}
+	}
+
+	.box {
+		border: 1px solid #eaeff3;
+		border-radius: 5px;
+		margin-bottom: 24px;
+		font-size: 20px;
+		line-height: 24px;
+
+		&:first-child {
+			margin-top: 12px;
+		}
+
+		.outer {
+			display: flex;
+			align-items: center;
+			padding: 20px 20px 20px 30px;
+			min-height: 107px;
+
+			//&:hover {
+			//	background: #eaeff3;
+			//	color: $green;
+			//}
+		}
+
+		.inner {
+			display: flex;
+			align-items: center;
+		}
+
+		.icon-hold {
+			margin-right: 19px;
+
+			img {
+				max-width: none;
+			}
+		}
+	}
+}
+
+.dropdown-menu {
+	width: 100%;
+
+	> li {
+		> a {
+			white-space: normal;
+			font-size: 14px;
+
+			&:hover {
+				background: #eaeff3;
+			}
+		}
+	}
+}

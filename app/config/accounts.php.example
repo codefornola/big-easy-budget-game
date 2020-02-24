@@ -1,0 +1,17 @@
+<?php
+
+return [
+    'cambridge' => [
+        'name' => 'ORG NAME',
+        'logo' => '/assets/img/ORG/logo.png',
+        'active' => true,
+        'connection' => [
+            'driver'   => 'mongodb',
+            'host'     => 'candidate.32.mongolayer.com:10756,candidate.33.mongolayer.com:10654',
+            'database' => 'peoplesbudget_ORG',
+            'username' => 'user',
+            'password' => "password",
+            'options'  => ['replicaSet' => 'set-55108a1cc12d19e0ea0003f2']
+        ],
+    ]
+];

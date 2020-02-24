@@ -1,0 +1,11 @@
+/* Theme colors */
+$bg-color: #fff;
+$box-radius: 6px;
+
+/* Placeholders */
+%box{
+	background:#fff;
+	padding:15px;
+	@include border-radius($box-radius);
+	box-shadow: 0 1px 4px rgba(0,0,0,.23);
+}

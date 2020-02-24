@@ -1,0 +1,23 @@
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+//	@include prefix(transform, translateZ(0));
+//	@include prefix(backface-visibility, hidden);
+//	@include prefix(perspective, 1000);
+}
+@keyframes splash {
+	from {
+		opacity: 0;
+		transform: scale(1.5, 1.5);
+		-webkit-transform: scale(1.5, 1.5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+	}
+}
+
+.splash {
+	animation-name: splash;
+}

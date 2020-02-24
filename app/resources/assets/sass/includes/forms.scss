@@ -1,0 +1,10 @@
+.btn-default{
+	background-color: #f8f8f8;
+	border-color: #ccc;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+	&:hover,
+	&:focus{
+		border-color:#5cb85c;
+		background:#fff;
+	}
+}

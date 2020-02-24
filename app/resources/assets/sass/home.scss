@@ -1,0 +1,36 @@
+@import 'modules/home/bootstrap';
+
+$breakpoints: (
+  'xs-phone': 320px,
+  'phone': 480px,
+  'tablet': 768px,
+  'desktop': 992px,
+  'widescreen': 1230px
+);
+
+// keywords
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// ligatured operators ≥ ≤
+
+@import 'modules/home/vendors/include-media';
+
+@import "modules/home/bootstrap-custom";
+@import "modules/home/vendors/bootstrap/variables";
+@import "modules/home/vendors/bootstrap/mixins";
+
+@import 'modules/home/base/mixins';
+@import 'modules/home/base/helpers';
+@import 'modules/home/base/reset';
+
+@import 'modules/home/layout/header';
+@import 'modules/home/layout/common';
+@import 'modules/home/layout/footer';

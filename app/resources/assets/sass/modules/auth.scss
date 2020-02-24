@@ -1,0 +1,73 @@
+.auth-dialog .modal-dialog{
+
+}
+.auth{
+
+	text-align: center;
+
+	.head{
+		font-size:22px;
+		text-transform: uppercase;
+		margin:0;
+		padding:0;
+	}
+	.subhead{
+		font-size:14px;
+		font-weight: bold;
+		display: block;
+		margin:15px 0;
+	}
+
+	.btn-social{
+		width:80px;
+		color:#333;
+		padding:0;
+	}
+	.btn-social-google .fa-stack{
+		color: #de5449;
+	}
+	.btn-social-facebook .fa-stack{
+		color:#3b5998;
+	}
+
+	.social-title{
+		display: block;
+		font-size:12px;
+	}
+
+	.divider{
+
+		margin: 15px auto 30px;
+		display: block;
+		width: 14px;
+		position: relative;
+		font-size: 14px;
+
+		&:before {
+			position: absolute;
+			content: "";
+			left: -137px;
+			top: 12px;
+			height: 1px;
+			width: 115px;
+			background-color: #eee;
+		}
+
+		&:after{
+			position: absolute;
+			content: "";
+			right: -137px;
+			top: 12px;
+			height: 1px;
+			width: 115px;
+			background-color: #eee;
+		}
+
+	}
+
+	.auth-register,
+	.auth-login{
+		padding:15px 0 0;
+	}
+
+}

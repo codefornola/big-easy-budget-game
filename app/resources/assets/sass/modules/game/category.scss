@@ -1,0 +1,22 @@
+.pb-cat-header{
+	background:#ca00e8;
+	color:#fff;
+	font-size:32px;
+	line-height:48px;
+	padding:45px 15px;
+	margin:0;
+	text-align:center;
+}
+.pb-cat-desc{
+	background:#fff;
+	.text{
+		color:#333;
+		font-size:24px;
+		line-height:32px;
+		padding:48px 15px;
+	}
+	img{
+		max-width:100%;
+		width:auto;
+	}
+}

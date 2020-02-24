@@ -1,0 +1,62 @@
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin box-shadow($shadow) {
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-ms-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+// CSS3 Property prefixes
+@mixin prefix($property,$value){
+	@each $prefix in -webkit-, -moz-, -ms-, -o-, ''{
+		#{$prefix}#{$property}:$value;
+	}
+}
+
+// Breakpoints to avoid using separated files!
+@mixin custom-breakpoint($breakpoint){
+	@media only screen and ($breakpoint){
+		@content;
+	}
+}
+
+@mixin desktop-lg{
+	@media only screen and (min-width:1200px){
+		@content;
+	}
+}
+
+@mixin desktop{
+	@media only screen and (min-width:992px){
+		@content;
+	}
+}
+
+@mixin tablet{
+	@media only screen and (min-width:768px){
+		@content;
+	}
+}
+
+@mixin tablet-only{
+	@media only screen and (min-width:768px) and (max-width:991px){
+		@content;
+	}
+}
+
+@mixin mobile-tablet-only{
+	@media only screen and (max-width:991px){
+		@content;
+	}
+}
+
+@mixin mobile-only{
+	@media only screen and (max-width:767px){
+		@content;
+	}
+}

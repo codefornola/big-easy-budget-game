@@ -1,0 +1,40 @@
+.bootstrap-dialog .bootstrap-dialog-message {
+	font-size: 16px;
+}
+.bootstrap-dialog .bootstrap-dialog-title{
+	font-size:18px;
+}
+.pb-org-divisions-title{
+	font-size: 18px;
+	border: 1px solid #eee;
+	border-width: 1px 0;
+	line-height: 24px;
+	margin: 0 -15px;
+	padding: 15px;
+	background: #f9f9f9;
+}
+.bootstrap-dialog-close-button{
+	//display: none !important;
+}
+
+.modal-footer{
+	background: #f8f8f8;
+	@include border-radius(0 0 5px 5px);
+}
+
+.pb-org-division{
+	line-height: 24px;
+	padding:5px 0;
+	border-bottom: 1px solid #F8F8F8;
+	img{
+		max-width:100%;
+		width:auto;
+	}
+}
+.pb-org-desc{
+	margin-bottom:15px;
+	img{
+		max-width:100%;
+		width:auto;
+	}
+}

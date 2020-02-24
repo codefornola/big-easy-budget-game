@@ -1,0 +1,22 @@
+.pb-msg-box{
+	position: fixed;
+	top: 0;
+	left:0;
+	right:0;
+	z-index:1030;
+	font-size:18px;
+	.alert{
+		margin:0;
+		@include border-radius(0)
+	}
+	.alert-warning{
+		background-color: #ffc328;
+		border:0;
+		color: #333;
+	}
+	.alert-danger{
+		background-color: #d21d1d;
+		border:0;
+		color: #fff;
+	}
+}

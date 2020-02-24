@@ -1,0 +1,60 @@
+/* Theme colors */
+/* Placeholders */
+.btn-default {
+  background-color: #f8f8f8;
+  border-color: #ccc;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); }
+  .btn-default:hover, .btn-default:focus {
+    border-color: #5cb85c;
+    background: #fff; }
+
+.auth {
+  text-align: center; }
+  .auth .head {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0; }
+  .auth .subhead {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin: 15px 0; }
+  .auth .btn-social {
+    width: 80px;
+    color: #333;
+    padding: 0; }
+  .auth .btn-social-google .fa-stack {
+    color: #de5449; }
+  .auth .btn-social-facebook .fa-stack {
+    color: #3b5998; }
+  .auth .social-title {
+    display: block;
+    font-size: 12px; }
+  .auth .divider {
+    margin: 15px auto 30px;
+    display: block;
+    width: 14px;
+    position: relative;
+    font-size: 14px; }
+    .auth .divider:before {
+      position: absolute;
+      content: "";
+      left: -137px;
+      top: 12px;
+      height: 1px;
+      width: 115px;
+      background-color: #eee; }
+    .auth .divider:after {
+      position: absolute;
+      content: "";
+      right: -137px;
+      top: 12px;
+      height: 1px;
+      width: 115px;
+      background-color: #eee; }
+  .auth .auth-register,
+  .auth .auth-login {
+    padding: 15px 0 0; }
+
+/*# sourceMappingURL=auth.css.map */

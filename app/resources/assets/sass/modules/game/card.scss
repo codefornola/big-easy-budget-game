@@ -1,0 +1,213 @@
+.pb-card{
+
+	position: relative;
+	min-height:480px;
+	padding-bottom:81px;
+	//height:538px;// no longer needed due to auto height fix in core.scss
+//	min-width:290px;
+	@include border-radius(7px);
+	@include box-shadow(0 1px 5px rgba(0,0,0,0.1));
+	background-color: #FFF;
+	margin:30px 0;
+
+	.pb-btn{
+		display: inline-block;
+		height:50px;
+		border-width: 1px;
+		border-style: solid;
+		@include border-radius(25px);
+		background-color: #fff;
+		font-size:16px;
+		line-height:22px;
+		padding:13px 15px;
+		text-decoration: none;
+		cursor: pointer;
+		text-align: center;
+	}
+	.pb-btn-circle{
+		width: 50px;
+		font-size:22px;
+		line-height:48px;
+		padding:0;
+		text-align: center;
+		letter-spacing: -2px;
+		&.plus-a{
+			position: absolute;
+			top:32px;
+			left:-18px;
+		}
+		&.plus-b{
+			position: absolute;
+			top:94px;
+			left:-18px;
+		}
+		&.minus-a{
+			position: absolute;
+			top:32px;
+			right:-18px;
+		}
+		&.minus-b{
+			position: absolute;
+			top:94px;
+			right:-18px;
+		}
+	}
+	.pb-btn-green{
+		border-color: #7cdf70;
+		color:#2ba417;
+		&:hover,&:active{
+			border-color:#2ba417;
+		}
+	}
+	.pb-btn-red{
+		border-color: #f96464;
+		color:#d21d1d;
+		&:hover,&:active{
+			border-color:#d21d1d;
+		}
+	}
+	.pb-btn-blue{
+		border-color:#9BCFF1;
+		color:#1B7EBD;
+		&:hover,&:active{
+			border-color:#4a9fd5;
+		}
+	}
+	.pb-btn-purple{
+		border-color: #DAA7E4;
+		color:#A909CA;
+		.fa{
+			color:#333;
+		}
+		&:hover,&:active{
+			border-color:#A909CA;
+		}
+	}
+
+	.org-header{
+		height:140px;
+		background-color: #888;
+		background-size: 100% auto;
+		background-size:cover;
+		background-position: center center;
+		@include border-radius(7px 7px 0 0);
+	}
+
+	.org-count{
+		@include border-radius(7px 0 0 0);
+		background:#333;
+		background:rgba(0,0,0,0.6);
+		color:#fff;
+		font-size:14px;
+		display: block;
+		position: absolute;
+		padding:3px 6px;left:0;top:0;
+	}
+
+	.org-budget-ctrl{
+		position: relative;
+		display: inline-block;
+		text-align: center;
+		width:182px;
+		height:182px;
+		padding:40px;
+		@include border-radius(90px);
+		margin-top: -90px;
+//		background:#f3f3f3;
+		border: 1px solid #ccc;
+		@include box-shadow(inset -10px -110px 70px 20px #f3f3f3);
+		-webkit-transition: -webkit-box-shadow 500ms, border-color 500ms;
+		transition: box-shadow 500ms, border-color 500ms;
+		&.in{
+			border: 1px solid #ffaa23;
+			@include box-shadow(inset -10px -110px 70px 20px #ffda6c);
+			-webkit-transition: none;
+			transition: none;
+		}
+	}
+	.org-budget-input{
+		display: block;
+		background: transparent;
+		border:none;
+		width:100px;
+		height:98px;
+		margin:0;
+		padding:0;
+		color:#fff;
+		font-size: 50px;
+		line-height: 98px;
+		text-align: center;
+		outline:none;
+		resize:none;
+		-moz-appearance:textfield;
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+	}
+	.org-budget-input-wrap{
+		background:#333;
+		width:100px;
+		height:100px;
+		@include border-radius(50px);
+		border:0;
+	}
+
+	.org-name{
+		font-size:24px;
+		margin:15px;
+		padding:0;
+	}
+	.org-unit-references{
+		font-size:13px;
+		color:#777;
+		margin:15px 0;
+		text-transform: uppercase;
+		.number{
+			color:#333;
+		}
+
+		@media (min-width: 768px) {
+			font-size:15px;
+		}
+	}
+	.org-link-other-funds{
+		cursor: pointer;
+		border-bottom: 1px dashed #337ab7;
+		text-decoration: none;
+	}
+	.tooltip .tooltip-inner{
+		font-size:14px;
+		line-height: 18px;
+		padding:20px;
+		text-align: left;
+	}
+
+	.org-brief{
+		margin:15px;
+		text-align: left;
+	}
+	.org-actions{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		width: 100%;
+		padding: 0 15px 15px 15px;
+		hr{
+			margin:15px 0;
+		}
+	}
+	.org-btn-details{
+		width:46%;
+		float:left;
+	}
+	.org-btn-poll{
+		width:46%;
+		float:right;
+	}
+	hr{
+		margin:15px;
+	}
+
+}

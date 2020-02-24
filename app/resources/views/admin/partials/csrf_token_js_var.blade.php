@@ -1,0 +1,1 @@
+<script>var laravel_csrf_token = "{{csrf_token()}}";</script>

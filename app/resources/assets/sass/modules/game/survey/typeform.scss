@@ -1,0 +1,9 @@
+.typeform-widget{
+	position: absolute;
+	bottom:3px;
+	top:202px;
+	@include mobile-only{
+		top:187px;
+		bottom:3px;
+	}
+}

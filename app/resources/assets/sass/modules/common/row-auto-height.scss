@@ -1,0 +1,78 @@
+/*  Bootstrap Clearfix for rows*/
+/*  Tablet  */
+@media (min-width:767px){
+
+	/* Column clear fix */
+	.row-auto > .col-lg-1:nth-child(12n+1),
+	.row-auto > .col-lg-2:nth-child(6n+1),
+	.row-auto > .col-lg-3:nth-child(4n+1),
+	.row-auto > .col-lg-4:nth-child(3n+1),
+	.row-auto > .col-lg-6:nth-child(2n+1),
+	.row-auto > .col-md-1:nth-child(12n+1),
+	.row-auto > .col-md-2:nth-child(6n+1),
+	.row-auto > .col-md-3:nth-child(4n+1),
+	.row-auto > .col-md-4:nth-child(3n+1),
+	.row-auto > .col-md-6:nth-child(2n+1){
+		clear: none;
+	}
+	.row-auto > .col-sm-1:nth-child(12n+1),
+	.row-auto > .col-sm-2:nth-child(6n+1),
+	.row-auto > .col-sm-3:nth-child(4n+1),
+	.row-auto > .col-sm-4:nth-child(3n+1),
+	.row-auto > .col-sm-6:nth-child(2n+1){
+		clear: left;
+	}
+}
+
+
+/*  Medium Desktop  */
+@media (min-width:992px){
+
+	/* Column clear fix */
+	.row-auto > .col-lg-1:nth-child(12n+1),
+	.row-auto > .col-lg-2:nth-child(6n+1),
+	.row-auto > .col-lg-3:nth-child(4n+1),
+	.row-auto > .col-lg-4:nth-child(3n+1),
+	.row-auto > .col-lg-6:nth-child(2n+1),
+	.row-auto > .col-sm-1:nth-child(12n+1),
+	.row-auto > .col-sm-2:nth-child(6n+1),
+	.row-auto > .col-sm-3:nth-child(4n+1),
+	.row-auto > .col-sm-4:nth-child(3n+1),
+	.row-auto > .col-sm-6:nth-child(2n+1){
+		clear: none;
+	}
+	.row-auto > .col-md-1:nth-child(12n+1),
+	.row-auto > .col-md-2:nth-child(6n+1),
+	.row-auto > .col-md-3:nth-child(4n+1),
+	.row-auto > .col-md-4:nth-child(3n+1),
+	.row-auto > .col-md-6:nth-child(2n+1){
+		clear: left;
+	}
+}
+
+
+/*  Large Desktop  */
+// Commented out because we're not defining col-lg-* classes
+/*
+@media (min-width:1200px){
+	.row-auto > .col-md-1:nth-child(12n+1),
+	.row-auto > .col-md-2:nth-child(6n+1),
+	.row-auto > .col-md-3:nth-child(4n+1),
+	.row-auto > .col-md-4:nth-child(3n+1),
+	.row-auto > .col-md-6:nth-child(2n+1),
+	.row-auto > .col-sm-1:nth-child(12n+1),
+	.row-auto > .col-sm-2:nth-child(6n+1),
+	.row-auto > .col-sm-3:nth-child(4n+1),
+	.row-auto > .col-sm-4:nth-child(3n+1),
+	.row-auto > .col-sm-6:nth-child(2n+1){
+		clear: none;
+	}
+	.row-auto > .col-lg-1:nth-child(12n+1),
+	.row-auto > .col-lg-2:nth-child(6n+1),
+	.row-auto > .col-lg-3:nth-child(4n+1),
+	.row-auto > .col-lg-4:nth-child(3n+1),
+	.row-auto > .col-lg-6:nth-child(2n+1){
+		clear: left;
+	}
+}
+*/

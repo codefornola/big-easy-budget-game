@@ -1,0 +1,39 @@
+.pb-poll{
+	.pb-poll-radios{
+		margin:-10px 0;
+	}
+	.radio{
+		cursor: pointer;
+		font-weight: 400;
+		padding: 10px 10px 10px 30px;
+		&.checked{
+			background-color: #5cb85c;
+			color: #fff !important;
+			text-shadow: 1px 1px 2px #000 !important;
+		}
+	}
+	.additional-info-wrap {
+		position: relative;
+		vertical-align: top;
+		.radio{
+			width: 100% !important;
+		}
+		.additional-info{
+			background-color: #5cb85c;
+			clear: both;
+			color: #fff !important;
+			margin-top: -10px;
+			margin-bottom: 10px;
+			padding: 0 10px 10px;
+			text-shadow: 1px 1px 2px #000 !important;
+			width: 100%;
+			.form-control{
+				border-color: #448a44;
+			}
+		}
+	}
+
+	.radio+.radio {
+		margin-top: 0;
+	}
+}
