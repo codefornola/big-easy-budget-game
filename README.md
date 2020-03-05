@@ -26,13 +26,7 @@ docker-compose exec workspace bash
 composer install
 
 php artisan migrate
-```
 
-migrations are currently failing with this
+# view view the logs (while inside the container)
+tail /var/www/storage/logs/laravel.log
 ```
-  [Symfony\Component\Debug\Exception\FatalThrowableError]
-  Class 'MongoClient' not found
-```
-
-maybe we need to update the dependency?
-https://github.com/jenssegers/laravel-mongodb#upgrading-from-version-2-to-3
