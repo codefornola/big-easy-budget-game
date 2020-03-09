@@ -6,7 +6,7 @@ var minifyCSS    = require('gulp-minify-css');
 var rename       = require('gulp-rename');
 var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify');
-var jquery       = require('gulp-jquery');
+// var jquery       = require('gulp-jquery');
 
 var Elixir       = require('laravel-elixir');
 

@@ -37,3 +37,23 @@ docker exec -it laradock_mongo_1 mongo
 ```
 
 
+### install assets (from workspace)
+```
+# for some reason you need python to install javascript libraries to transpile javascript/saas?
+apt-get install python2.7
+npm config set python /usr/bin/python2.7
+npm i
+
+# possibly need to install gulp globally?
+npm i -g gulp@3.2.1
+
+# run all gulp tasks
+gulp
+```
+
+
+### run server
+```
+php artisan serve --port 8080 --host 0.0.0.0
+```
+
