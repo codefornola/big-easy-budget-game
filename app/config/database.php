@@ -48,25 +48,12 @@ return [
 
         'app' => [
             'driver'   => 'mongodb',
-            'host'     => explode(',', env('DB_MONGO_HOST', 'localhost')),
+            'host'     => explode(',', env('DB_HOST', 'localhost')),
             'port'     => env('DB_PORT', 27017),
-            'database' => env('DB_MONGO_DATABASE'),
-            'username' => env('DB_MONGO_USERNAME'),
-            'password' => env('DB_MONGO_PASSWORD'),
-            'options'  => array('replicaSet' => env('DB_MONGO_REPLICA_SET', null))
-        ],
-
-        'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
-        ],
+            'database' => env('DB_DATABASE', 'budget_game_dev'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD')
+        ]
 
     ],
 

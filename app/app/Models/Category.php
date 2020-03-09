@@ -1,8 +1,8 @@
 <?php namespace App\Models;
 
-use Jenssegers\Mongodb\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Category extends Eloquent{
+class Category extends Model {
 
 //	protected $connection = 'mongodb';
 	protected $collection = 'categories';

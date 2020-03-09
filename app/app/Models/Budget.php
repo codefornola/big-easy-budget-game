@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Budget extends Eloquent
-{
+class Budget extends Model {
 
 //    protected $connection = 'mongodb';
     protected $guarded    = [];

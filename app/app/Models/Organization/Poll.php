@@ -1,8 +1,8 @@
 <?php namespace App\Models\Organization;
 
-use Jenssegers\Mongodb\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Poll extends Eloquent{
+class Poll extends Model {
 
 //	protected $connection = 'mongodb';
 	protected $guarded = [];

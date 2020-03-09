@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Page extends Eloquent
-{
+class Page extends Model {
 
     protected $guarded    = [];
     protected $dates      = ['created_at', 'updated_at', 'deleted_at', 'opened_at', 'closed_at'];
