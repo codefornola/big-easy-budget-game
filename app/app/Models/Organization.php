@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use File;
-use Jenssegers\Mongodb\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Organization extends Eloquent{
+class Organization extends Model {
 
 //	protected $connection = 'mongodb';
 	protected $guarded = [];

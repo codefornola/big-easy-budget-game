@@ -30,3 +30,10 @@ php artisan migrate
 # view view the logs (while inside the container)
 tail /var/www/storage/logs/laravel.log
 ```
+
+After the migrations are run, you can open the mongo cli to inspect the database with 
+```
+docker exec -it laradock_mongo_1 mongo
+```
+
+

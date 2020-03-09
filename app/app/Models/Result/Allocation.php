@@ -1,8 +1,8 @@
 <?php namespace App\Models\Result;
 
-use Jenssegers\Mongodb\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Allocation extends Eloquent{
+class Allocation extends Model {
 
 //	protected $connection = 'mongodb';
 	protected $guarded    = [];

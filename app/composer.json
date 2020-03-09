@@ -10,7 +10,7 @@
         "laravel/socialite": "~2.0",
         "laravelcollective/html": "5.1.*",
         "bican/roles": "2.1.*",
-        "jenssegers/mongodb": "^2.1",
+        "jenssegers/mongodb": "^3.0",
         "intervention/image": "^2.3"
     },
     "require-dev": {
