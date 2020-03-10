@@ -31,7 +31,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'role' => \App\Http\Middleware\VerifyRole::class,
-//        'verify.account' => ,
+        'verify.account' => \App\Http\Middleware\VerifyAccount::class,
         'filter.input.budget' => \App\Http\Middleware\Filters\FilterBudgetInput::class,
         'filter.input.organization' => \App\Http\Middleware\Filters\FilterOrganizationInput::class,
         'filter.input.result' => \App\Http\Middleware\Filters\FilterResultInput::class,
