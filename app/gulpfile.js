@@ -2,9 +2,9 @@
  * 'app' and 'www' assets must be compiled separately via gulp
  */
 
+var elixir = require('laravel-elixir');
 
 // Uncomment below for app assets
-var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('auth.scss',  'public/assets/game/css/auth.css');
     mix.sass('game.scss',  'public/assets/game/css/main.css');
