@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: budgetgame:latest 
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    ports:
+      - 9000:9000
+    networks:
+      - bgnet
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: budgetgame
+      MONGO_INITDB_ROOT_PASSWORD: budgetgamepass
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongod.conf:/etc/mongod.conf
+      - ./mongodata/db/:/data/db
+      - ./mongodata/log/:/var/log/mongodb/
+    command: ["-f", "/etc/mongod.conf"]
+    networks:
+      - bgnet
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    depends_on: 
+      - app
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+    networks:
+      - bgnet
+
+networks:
+  bgnet:
+    driver: bridge

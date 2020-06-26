@@ -7,3 +7,4 @@ Homestead.yaml
 .idea
 .htpasswd
 .DS_STORE
+mongodata
