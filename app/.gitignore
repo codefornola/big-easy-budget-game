@@ -7,4 +7,5 @@ Homestead.yaml
 .idea
 .htpasswd
 .DS_STORE
-mongodata
+.docker/mongo/db/
+.docker/mongo/log/

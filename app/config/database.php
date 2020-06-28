@@ -50,9 +50,15 @@ return [
             'driver'   => 'mongodb',
             'host'     => explode(',', env('DB_HOST', 'localhost')),
             'port'     => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE', 'budget_game_dev'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD')
+            'database' => env('DB_DATABASE', 'budgetgame_dev'),
+            // 'username' => env('DB_USERNAME', 'budgetgame'),
+            // 'password' => env('DB_PASSWORD', 'budgetgamepass'),
+            'options' => [
+                // here you can pass more settings to the Mongo Driver Manager
+                // see https://www.php.net/manual/en/mongodb-driver-manager.construct.php under "Uri Options" for a list of complete parameters that you can use
+                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required with Mongo 3+
+                // 'db' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required with Mongo 3+
+            ],
         ]
 
     ],

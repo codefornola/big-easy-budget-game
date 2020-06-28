@@ -14,17 +14,18 @@ services:
       - 9000:9000
     networks:
       - bgnet
-  mongodb:
+  mongo:
     image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: budgetgame
-      MONGO_INITDB_ROOT_PASSWORD: budgetgamepass
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: budgetgame
+    #   MONGO_INITDB_ROOT_PASSWORD: budgetgamepass
     ports:
       - 27017:27017
     volumes:
-      - ./mongod.conf:/etc/mongod.conf
-      - ./mongodata/db/:/data/db
-      - ./mongodata/log/:/var/log/mongodb/
+      - ./.docker/mongo/mongod.conf:/etc/mongod.conf
+      - ./.docker/mongo/db/:/data/db
+      - ./.docker/mongo/log/:/var/log/mongodb/
+      - ./mongodumps/neworleans:/tmp/neworleans
     command: ["-f", "/etc/mongod.conf"]
     networks:
       - bgnet
@@ -37,7 +38,7 @@ services:
       - 8000:80
     volumes:
       - ./:/var/www
-      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./.docker/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - bgnet
 

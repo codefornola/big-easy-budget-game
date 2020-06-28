@@ -1,30 +1,6 @@
-here's some steps i've used to get started
+docker-compose run --rm app composer install
+docker-compose run --rm app php artisan key:generate
 
-https://laradock.io/documentation/#use-mongo
-
-## Initial setup
-```
-# to initialize, fetch and checkout any nested submodules
-git submodule update --init --recursive
-
-cd laradock/
-# create a file named .env in the laradock folder with this contents https://gist.github.com/mrcnc/c764a3270e86c039494ef6159908d2b0
-
-# then run the following (it will take several minutes):
-docker-compose build workspace php-fpm
-
-# then start the prerequisite services 
-docker-compose up -d mongo php-fpm
-```
-
-
-## Development
-
-First you should login to the "workspace" container because that is where you will want to run all of the following steps
-```
-# run this from the laradock folder
-docker-compose exec workspace bash
-```
 
 ### install dependencies 
 ```
@@ -50,36 +26,25 @@ gulp
 ```
 
 ### setup database
+First start the mongodb server with `docker-compose up mongo`
+
+Then you can run migrations to setup the database schema
 ```
-# run migrations to setup the database schema
-php artisan migrate
+docker-compose run --rm app php artisan migrate
 ```
 
 > Ask one of the project leads to give you access to a mongodb dump
 > then you can restore the database with a previous snapshot using `mongorestore`
 
-
-You can open the mongo cli to inspect the database
 ```
-# run this from the laradock folder
-docker exec -it laradock_mongo_1 mongo
+docker-compose exec mongo mongorestore --username=budgetgame --password=budgetgamepass /tmp/neworleans/
 ```
 
-
-
-### run server
-```
-# from inside the workspace you can run this
-php artisan serve --port 8080 --host 0.0.0.0
-
-# you can also use laradock to run apache
-docker-compose up -d apache2
-```
 
 ### other 
 ```
-# to view the logs (while inside the container)
-tail /var/www/storage/logs/laravel.log
+# to view the app logs
+docker-compose exec  app tail -f /var/www/storage/logs/laravel.log
 ```
 
 You can set the `APP_DEBUG` environment variable to see error messages in development (or change the `app/config/app.php` to set it to true by default).
@@ -91,4 +56,4 @@ Update your /etc/hosts file to contain an entry for `neworleans`
 ...
 ```
 
-Then you should be able to visit http://neworleans/ and see the site load
+Then you should be able to visit http://neworleans:8000/ and see the site load
