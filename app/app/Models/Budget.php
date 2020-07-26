@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
+
 
 class Budget extends Model {
 
@@ -79,7 +81,7 @@ class Budget extends Model {
         // Average units per organization
         $budget = $this;
         $data   = Result::raw(function ($collection) use ($budget){
-            return $collection->aggregate(
+            return $collection->aggregate([
                 ['$match' => ['budget_id' => $budget->id]],
                 [
                     '$group' => [
@@ -87,11 +89,11 @@ class Budget extends Model {
                         'avgTakeTime' => ['$avg' => '$take_time']
                     ]
                 ]
-            );
+            ]);
         });
 
         return !empty($data)
-            ? $this->secondsToTime($data['result'][0]['avgTakeTime']) // converts seconds to time
+            ? $this->secondsToTime($data[0]['avgTakeTime']) // converts seconds to time
             : null;
 
     }
@@ -130,7 +132,7 @@ class Budget extends Model {
 
         // Average units per organization
         $data = Result::raw(function ($collection) use ($budget){
-            return $collection->aggregate(
+            return $collection->aggregate([
                 ['$match' => ['budget_id' => $budget->id]],
                 ['$unwind' => '$allocations'],
                 [
@@ -153,11 +155,11 @@ class Budget extends Model {
                         'avgUnits' => -1
                     ]
                 ]
-            );
+            ]);
         });
 
         return !empty($data)
-            ? $data['result']
+            ? $data
             : null;
     }
 
@@ -167,7 +169,7 @@ class Budget extends Model {
         // Total units per category
         $count = $budget->results->count();
         $data  = Result::raw(function ($collection) use ($budget, $count){
-            return $collection->aggregate(
+            return $collection->aggregate([
                 ['$match' => ['budget_id' => $budget->id]],
                 ['$unwind' => '$allocations'],
                 [
@@ -187,11 +189,11 @@ class Budget extends Model {
                         'avgUnits'   => ['$divide' => ['$totalUnits', $count]],
                     ]
                 ]
-            );
+            ]);
         });
 
         return !empty($data)
-            ? $data['result']
+            ? $data
             : null;
 
     }
@@ -202,10 +204,10 @@ class Budget extends Model {
         // Latest activity
         $data = Result::raw(function ($collection) use ($budget, $daysAgo){
 
-            $today      = new \MongoDate();
-            $recentDays = new \MongoDate(strtotime("$daysAgo days ago"));
+            $today      = new \MongoDB\BSON\UTCDateTime();
+            $recentDays = new \MongoDB\BSON\UTCDateTime(strtotime("$daysAgo days ago"));
 
-            return $collection->aggregate(
+            return $collection->aggregate([
                 [
                     '$match' => [
                         'budget_id'  => $budget->id,
@@ -230,22 +232,23 @@ class Budget extends Model {
                         '_id.day'   => 1
                     ]
                 ]
-            );
+            ]);
         });
 
         return !empty($data)
-            ? $data['result']
+            ? $data
             : null;
 
     }
 
     public static function aggregateSummaryActivity($budget)
     {
+        // Log::info("FETCIHING DATA FOR", ["budget" => $budget]);
 
         // Overall activity
         $data = Result::raw(function ($collection) use ($budget){
 
-            return $collection->aggregate(
+            return $collection->aggregate([
                 [
                     '$match' => [
                         'budget_id' => $budget->id
@@ -258,11 +261,11 @@ class Budget extends Model {
                         'total'       => ['$sum' => 1]
                     ]
                 ]
-            );
+            ]);
         });
 
-        return (!empty($data) && is_array($data['result']) && !empty($data['result']))
-            ? $data['result'][0]
+        return (!empty($data))
+            ? $data
             : null;
 
     }
@@ -274,9 +277,9 @@ class Budget extends Model {
         $data = Result::raw(function ($collection) use ($budget){
 
             $opened = $budget->opened_at;
-            $closed   = isset($budget->closed_at) ? $budget->closed_at : new \MongoDate();
+            $closed   = isset($budget->closed_at) ? $budget->closed_at : new \MongoDB\BSON\UTCDateTime();
 
-            return $collection->aggregate(
+            return $collection->aggregate([
                 [
                     '$match' => [
                         'budget_id'  => $budget->id,
@@ -301,11 +304,11 @@ class Budget extends Model {
                         '_id.day'   => 1
                     ]
                 ]
-            );
+            ]);
         });
 
-        return (!empty($data) && is_array($data['result']) && !empty($data['result']))
-            ? $data['result'][0]
+        return (!empty($data) && is_array($data) && !empty($data))
+            ? $data
             : null;
 
     }
