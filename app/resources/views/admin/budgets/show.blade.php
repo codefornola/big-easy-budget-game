@@ -13,8 +13,12 @@
 		        </div>
 				<div class="box-body with-border">
 					<div class="row">
+					@if(isset($stats['summaryActivity']['total']))
 						<div class="col-sm-6">Total completed budgets: {{ $stats['summaryActivity']['total'] }}</div>
 						<div class="col-sm-6">Average minutes to complete: {{ $budget->secondsToTime($stats['summaryActivity']['avgTakeTime']) }}</div>
+				    @else
+						<!-- <div class="col-sm-6">stats: {{ implode(', ', $stats) }}</div> -->
+					@endif
 					</div>
 				</div>
 
