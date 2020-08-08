@@ -6,6 +6,9 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: budgetgame:latest 
+    environment:
+      DB_USERNAME: admin # use admin to run migrations
+      DB_PASSWORD: admin
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -15,16 +18,21 @@ services:
     networks:
       - bgnet
   mongo:
-    image: mongo:latest
-    # environment:
-    #   MONGO_INITDB_ROOT_USERNAME: budgetgame
-    #   MONGO_INITDB_ROOT_PASSWORD: budgetgamepass
+    image: mongo:4.0.19
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: budgetgame_dev
+      MONGO_INITDB_USERNAME: budgetgame
+      MONGO_INITDB_PASSWORD: budgetgamepass
     ports:
       - 27017:27017
     volumes:
       - ./.docker/mongo/mongod.conf:/etc/mongod.conf
-      - ./.docker/mongo/db/:/data/db
+      - ./.docker/mongo/db/:/data/db/
       - ./.docker/mongo/log/:/var/log/mongodb/
+      - ./.docker/mongo/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./.docker/mongo/home/mongodb/:/home/mongodb/
       - ./mongodumps/neworleans:/tmp/neworleans
     command: ["-f", "/etc/mongod.conf"]
     networks:
