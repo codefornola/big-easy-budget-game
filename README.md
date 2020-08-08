@@ -1,3 +1,5 @@
+First `cd app`
+
 ### install dependencies 
 ```
 docker-compose run --rm app composer install
@@ -46,7 +48,7 @@ Then you should be able to visit http://neworleans:8000/ and see the site load
 docker-compose exec  app tail -f /var/www/storage/logs/laravel.log
 
 # open a mongodb console
-docker-compose exec mongo mongo -u budgetgame -p budgetgamepass
+docker-compose exec mongo mongo -u budgetgame -p budgetgamepass budgetgame_dev
 ```
 
 Useful mongo commands to run in the console:

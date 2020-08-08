@@ -9,3 +9,4 @@ Homestead.yaml
 .DS_STORE
 .docker/mongo/db/
 .docker/mongo/log/
+.dbshell

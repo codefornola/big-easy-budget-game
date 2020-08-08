@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'app'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,18 +46,16 @@ return [
 
     'connections' => [
 
-        'app' => [
+        // https://github.com/jenssegers/laravel-mongodb/tree/v3.2.3#configuration
+        'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => explode(',', env('DB_HOST', 'localhost')),
+            'host'     => env('DB_HOST', 'mongo'),
             'port'     => env('DB_PORT', 27017),
             'database' => env('DB_DATABASE', 'budgetgame_dev'),
-            // 'username' => env('DB_USERNAME', 'budgetgame'),
-            // 'password' => env('DB_PASSWORD', 'budgetgamepass'),
+            'username' => env('DB_USERNAME', 'budgetgame'),
+            'password' => env('DB_PASSWORD', 'budgetgamepass'),
             'options' => [
-                // here you can pass more settings to the Mongo Driver Manager
-                // see https://www.php.net/manual/en/mongodb-driver-manager.construct.php under "Uri Options" for a list of complete parameters that you can use
-                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required with Mongo 3+
-                // 'db' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required with Mongo 3+
+                'database' => 'admin'
             ],
         ]
 
