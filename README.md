@@ -23,7 +23,7 @@ docker-compose run --rm app php artisan migrate
 > so you can restore the database with a previous snapshot using `mongorestore`
 
 ```
-docker-compose exec mongo mongorestore --username=budgetgame --password=budgetgamepass /tmp/neworleans/
+docker-compose exec mongo mongorestore --username=admin --password=admin /tmp/neworleans/
 ```
 
 
