@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'app'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,13 +46,17 @@ return [
 
     'connections' => [
 
-        'app' => [
+        // https://github.com/jenssegers/laravel-mongodb/tree/v3.2.3#configuration
+        'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => explode(',', env('DB_HOST', 'localhost')),
+            'host'     => env('DB_HOST', 'mongo'),
             'port'     => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE', 'budget_game_dev'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD')
+            'database' => env('DB_DATABASE', 'budgetgame_dev'),
+            'username' => env('DB_USERNAME', 'budgetgame'),
+            'password' => env('DB_PASSWORD', 'budgetgamepass'),
+            'options' => [
+                'database' => 'admin'
+            ],
         ]
 
     ],

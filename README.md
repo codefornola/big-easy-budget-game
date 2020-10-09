@@ -1,88 +1,36 @@
-here's some steps i've used to get started
-
-https://laradock.io/documentation/#use-mongo
-
-## Initial setup
-```
-# to initialize, fetch and checkout any nested submodules
-git submodule update --init --recursive
-
-cd laradock/
-# create a file named .env in the laradock folder with this contents https://gist.github.com/mrcnc/c764a3270e86c039494ef6159908d2b0
-
-# then run the following (it will take several minutes):
-docker-compose build workspace php-fpm
-
-# then start the prerequisite services 
-docker-compose up -d mongo php-fpm
-```
-
-
-## Development
-
-First you should login to the "workspace" container because that is where you will want to run all of the following steps
-```
-# run this from the laradock folder
-docker-compose exec workspace bash
-```
+First `cd app`
 
 ### install dependencies 
 ```
-# from the /var/www directory, you should see a composer.json and all of the other code
-# mounted inside the container.  then you can install the app dependencies
-composer install
+docker-compose run --rm app composer install
+```
 
-# now install front end assets 
-# for some reason you need python to install javascript libraries to transpile javascript/saas?
-apt-get install python2.7
-npm config set python /usr/bin/python2.7
-npm i
-
-# possibly need to install gulp globally?
-npm i -g gulp@3.2.1
-
-# run all gulp tasks for app assets
-gulp
-
-# then change the gulpfile.js to comment out the tasks for app assets
-# and uncomment the ones for the www assets and run gulp again
-gulp
+### generate new app key 
+```
+docker-compose run --rm app php artisan key:generate
 ```
 
 ### setup database
-```
-# run migrations to setup the database schema
-php artisan migrate
-```
+First start the mongodb server with `docker-compose up mongo`
 
-> Ask one of the project leads to give you access to a mongodb dump
-> then you can restore the database with a previous snapshot using `mongorestore`
-
-
-You can open the mongo cli to inspect the database
+Then you can run migrations to setup the database schema
 ```
-# run this from the laradock folder
-docker exec -it laradock_mongo_1 mongo
+docker-compose run --rm app php artisan migrate
 ```
 
+#### optional
+> If you are setting up the production site, ask one of the project leads to give you access to a mongodb dump
+> so you can restore the database with a previous snapshot using `mongorestore`
 
-
-### run server
 ```
-# from inside the workspace you can run this
-php artisan serve --port 8080 --host 0.0.0.0
-
-# you can also use laradock to run apache
-docker-compose up -d apache2
+docker-compose exec mongo mongorestore --username=admin --password=admin /tmp/neworleans/
 ```
 
-### other 
-```
-# to view the logs (while inside the container)
-tail /var/www/storage/logs/laravel.log
-```
 
-You can set the `APP_DEBUG` environment variable to see error messages in development (or change the `app/config/app.php` to set it to true by default).
+### Start the app
+```
+docker-compose up -d
+```
 
 Update your /etc/hosts file to contain an entry for `neworleans`
 ```
@@ -91,4 +39,25 @@ Update your /etc/hosts file to contain an entry for `neworleans`
 ...
 ```
 
-Then you should be able to visit http://neworleans/ and see the site load
+Then you should be able to visit http://neworleans:8000/ and see the site load
+
+
+### useful commands for development 
+```
+# to tail the app logs
+docker-compose exec  app tail -f /var/www/storage/logs/laravel.log
+
+# open a mongodb console
+docker-compose exec mongo mongo -u budgetgame -p budgetgamepass budgetgame_dev
+```
+
+Useful mongo commands to run in the console:
+```
+show dbs;
+use peoplesbudget_develop;
+show collections;
+db.users.find({"email": {$regex: /^myemail/}});
+db.users.updateOne({"email": "myemail+test1@gmail.com"}, {$set: {roles: ["user", "admin"] }})
+```
+
+You can set the `APP_DEBUG` environment variable to see error messages in development (or change the `app/config/app.php` to set it to true by default).
