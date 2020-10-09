@@ -9,6 +9,7 @@ services:
     environment:
       DB_USERNAME: admin # use admin to run migrations
       DB_PASSWORD: admin
+      APP_DEBUG: 'True'
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -43,7 +44,7 @@ services:
     depends_on: 
       - app
     ports:
-      - 8000:80
+      - 80:80
     volumes:
       - ./:/var/www
       - ./.docker/nginx/conf.d/:/etc/nginx/conf.d/

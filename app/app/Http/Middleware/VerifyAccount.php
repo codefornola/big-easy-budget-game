@@ -26,7 +26,8 @@ class VerifyAccount{
         }
 
         // A subdomain was provided
-        $account = new Account($parts[0]);
+        // $account = new Account($parts[0]);
+        $account = new Account('neworleans');
 
         // Throw not found if no account found
         if(!$account->exists()) abort(404);
