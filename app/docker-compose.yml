@@ -44,12 +44,21 @@ services:
     depends_on: 
       - app
     ports:
-      - 80:80
+      - "80:80"
+      - "443:443"
     volumes:
       - ./:/var/www
       - ./.docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./.secrets/certbot/conf:/etc/letsencrypt
+      - ./.secrets/certbot/www:/var/www/certbot
     networks:
       - bgnet
+#  certbot:
+#    image: certbot/certbot
+#    volumes:
+#      - ./.secrets/certbot/conf:/etc/letsencrypt
+#      - ./.secrets/certbot/www:/var/www/certbot
+
 
 networks:
   bgnet:
