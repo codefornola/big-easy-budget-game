@@ -10,3 +10,4 @@ Homestead.yaml
 .docker/mongo/db/
 .docker/mongo/log/
 .dbshell
+.secrets
