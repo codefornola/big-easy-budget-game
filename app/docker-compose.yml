@@ -15,7 +15,7 @@ services:
     volumes:
       - ./:/var/www
     ports:
-      - 9000:9000
+      - "9000"
     networks:
       - bgnet
   mongo:
@@ -27,7 +27,7 @@ services:
       MONGO_INITDB_USERNAME: budgetgame
       MONGO_INITDB_PASSWORD: budgetgamepass
     ports:
-      - 27017:27017
+      - "27017"
     volumes:
       - ./.docker/mongo/mongod.conf:/etc/mongod.conf
       - ./.docker/mongo/db/:/data/db/
